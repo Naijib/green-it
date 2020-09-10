@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nano-server 5000 static/"
+    "start": "npm install & nano-server 5000 static/"
   },
   "author": "",
   "license": "ISC",
