@@ -1,0 +1,38 @@
+body{
+	background-color:#CCE5FF;
+}
+
+table{
+	border:4px black solid;
+}
+
+input{ /*formulaire et bouton*/
+	border-style:inset;
+	border-radius:10px 0px 10px 0px;
+	width:200px;
+	height:25px;
+}
+
+td,th{
+	font-size:21px;
+	font-family:"comic sans ms";
+	border:2px black solid;
+}
+
+#boite_cherche{
+	background-color:#fffff2;
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border:solid;
+	border-radius:10px 0px 10px 0px;
+}
+
+#photo{
+	width:300px;
+	height:100px;
+}
+
+#page0{
+	display:flex;
+}
