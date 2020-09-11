@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
   <title>Green it</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
   <div id="wrapper">
@@ -32,17 +30,14 @@
             <td>Firefox</td>
             <td>Chrome</td>
           </tr>
-          <br>
           <tr>
             <td>1</td>
             <td>2</td>
           </tr>
-          <br>
           <tr>
             <td>1</td>
             <td>2</td>
           </tr>
-          <br>
           <tr>
             <td>1</td>
             <td>2</td>
@@ -54,5 +49,42 @@
       <a href="mentions.html">Mentions légales</a>
     </section>
   </div>
+  <style>
+	body{
+		/*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/
+		background: green;
+	}
+
+	#wrapper{
+		display:grid;
+		grid-template-columns: auto;
+		grid-template-rows: auto auto;
+	}
+
+	table{
+		border: 4px black solid;
+	}
+
+	input{ /*formulaire et bouton*/
+		border-style:inset;
+		border-radius:10px 0px 10px 0px;
+		width:200px;
+		height:25px;
+	}
+
+	td,th{
+		font-size:21px;
+		font-family:"comic sans ms";
+		border:2px black solid;
+	}
+
+	#search-box{
+		background-color:#fffff2;
+		padding-left:10px;
+		padding-bottom:10px;
+		border:solid;
+		border-radius:10px 0px 10px 0px;
+	}
+</style>
 </body>
 </html>
