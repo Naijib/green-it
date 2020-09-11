@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm install & nano-server 5000 static/"
+    "start": "nano-server 5000 static/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nano-server": "^0.5.4"
+    "nano-server": "https://github.com/themineraria/nano-server"
   }
 }
