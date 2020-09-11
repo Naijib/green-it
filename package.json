@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nano-server": "https://github.com/themineraria/nano-server"
+    "nano-server": "https://github.com/themineraria/nano-server",
+    "zlib": "^1.0.5"
   }
 }
