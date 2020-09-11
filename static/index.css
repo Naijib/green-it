@@ -1,11 +1,12 @@
 body{
-	background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));
+	/*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/
+	background: green;
 }
 
 #wrapper{
 	display:grid;
 	grid-template-columns: auto;
-  grid-template-rows: auto auto;
+	grid-template-rows: auto auto;
 }
 
 table{
@@ -25,16 +26,10 @@ td,th{
 	border:2px black solid;
 }
 
-#boite_cherche{
+#search-box{
 	background-color:#fffff2;
 	padding-left:10px;
-	padding-top:10px;
 	padding-bottom:10px;
 	border:solid;
 	border-radius:10px 0px 10px 0px;
-}
-
-#photo{
-	width:300px;
-	height:100px;
 }
