@@ -5,86 +5,8 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
-  <div id="wrapper">
-    <h1>Green IT</h1>
-    <br>
-    <section id="page">
-      <div id="search-box">
-        <h2>Recherche</h2>
-        <br>
-        <form action="/research" method="get">
-          <input id="prenom" name="prenom" type="text" placeholder="prenom" >
-          <input id="nom" name="nom" type="text" placeholder="nom" >
-          <input id="filiere" name="filiere" type="text" placeholder="filière" >
-          <input type="submit" value="GO">
-        </form>
-        <br>
-        <small>Nombre de recherches <span>0</span>.</small>
-      </div>
-    </section>
-    <br>
-    <section id="page2">
-        <h2>Temps de chargement et execution de la page par navigateur:</h2>
-        <table>
-          <tr>
-            <td>Firefox</td>
-            <td>Chrome</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-      <p>Projet réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020</p>
-      <p>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU.</p>
-      <h4>ps: plus c'est moche plus ça charge vite</h4>
-      <a href="mentions.html">Mentions légales</a>
-    </section>
-  </div>
-  <style>
-	body{
-		/*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/
-		background: green;
-	}
-
-	#wrapper{
-		display:grid;
-		grid-template-columns: auto;
-		grid-template-rows: auto auto;
-	}
-
-	table{
-		border: 4px black solid;
-	}
-
-	input{ /*formulaire et bouton*/
-		border-style:inset;
-		border-radius:10px 0px 10px 0px;
-		width:200px;
-		height:25px;
-	}
-
-	td,th{
-		font-size:21px;
-		font-family:"comic sans ms";
-		border:2px black solid;
-	}
-
-	#search-box{
-		background-color:#fffff2;
-		padding-left:10px;
-		padding-bottom:10px;
-		border:solid;
-		border-radius:10px 0px 10px 0px;
-	}
-</style>
+	<script>
+		document.body.innerHTML = "<div id=\"wrapper\"> <h1>Green IT</h1> <br> <section id=\"page\"> <div id=\"search-box\"> <h2>Recherche</h2> <br> <form action=\"/research\" method=\"get\"> <input id=\"prenom\" name=\"prenom\" type=\"text\" placeholder=\"prenom\" > <input id=\"nom\" name=\"nom\" type=\"text\" placeholder=\"nom\" > <input id=\"filiere\" name=\"filiere\" type=\"text\" placeholder=\"filière\" > <input type=\"submit\" value=\"GO\"> </form> <br> <small>Nombre de recherches <span>0</span>.</small> </div> </section> <br> <section id=\"page2\"> <h2>Temps de chargement et execution de la page par navigateur:</h2> <table> <tr> <td>Firefox</td> <td>Chrome</td> </tr> <tr> <td>1</td> <td>2</td> </tr> <tr> <td>1</td> <td>2</td> </tr> <tr> <td>1</td> <td>2</td> </tr> </table> <p>Projet réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020</p> <p>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU.</p> <h4>ps: plus c'est moche plus ça charge vite</h4> <a href=\"mentions.html\">Mentions légales</a> </section> </div> <style> body{ /*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/ background: green; } #wrapper{ display:grid; grid-template-columns: auto; grid-template-rows: auto auto; } table{ border: 4px black solid; } input{ /*formulaire et bouton*/ border-style:inset; border-radius:10px 0px 10px 0px; width:200px; height:25px; } td,th{ font-size:21px; font-family:\"comic sans ms\"; border:2px black solid; } #search-box{ background-color:#fffff2; padding-left:10px; padding-bottom:10px; border:solid; border-radius:10px 0px 10px 0px; } </style>";
+	</script>
 </body>
 </html>
