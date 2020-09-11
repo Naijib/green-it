@@ -5,50 +5,6 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
-  <div id="wrapper">
-    <h1>Green IT</h1>
-    <br>
-    <section id="page">
-      <div id="search-box">
-        <h2>Recherche</h2>
-        <br>
-        <form action="/research" method="get">
-          <input id="prenom" name="prenom" type="text" placeholder="prenom" >
-          <input id="nom" name="nom" type="text" placeholder="nom" >
-          <input id="filiere" name="filiere" type="text" placeholder="filière" >
-          <input type="submit" value="GO">
-        </form>
-        <br>
-        <small>Nombre de recherches <span>0</span>.</small>
-      </div>
-    </section>
-    <br>
-    <section id="page2">
-        <h2>Temps de chargement et execution de la page par navigateur:</h2>
-        <table>
-          <tr>
-            <td>Firefox</td>
-            <td>Chrome</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-      <p>Projet réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020</p>
-      <p>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU.</p>
-      <h4>ps: plus c'est moche plus ça charge vite</h4>
-      <a href="mentions.html">Mentions légales</a>
-    </section>
-  </div>
   <style>
 	body{
 		/*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/
@@ -85,6 +41,74 @@
 		border:solid;
 		border-radius:10px 0px 10px 0px;
 	}
-</style>
+  </style>
+  <div id="wrapper">
+    <h1>Green IT</h1>
+    <section id="page">
+      <div id="search-box">
+        <h2>Recherche</h2>
+        <form id="searchForm">
+          <input id="prenom" type="text" placeholder="prenom" >
+          <input id="nom" type="text" placeholder="nom" >
+          <input id="filiere" type="text" placeholder="filière" >
+          <input type="submit" value="GO">
+        </form>
+        <br>
+        <small>Nombre de recherches <span>0</span>.</small>
+      </div>
+    </section>
+    <br>
+    <section id="page2">
+        <h2>Temps de chargement et execution de la page par navigateur:</h2>
+        <table>
+          <tr>
+            <td>Firefox</td>
+            <td>Chrome</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </table>
+      <p>Projet réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020</p>
+      <p>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU.</p>
+      <h4>ps: plus c'est moche plus ça charge vite</h4>
+      <a href="mentions.html">Mentions légales</a>
+    </section>
+  </div>
+<script>
+window.addEventListener("load", function () {
+  function search() {
+    var url = "research";
+	var params = "prenom=" +
+	document.getElementById('prenom').value +
+	"&nom=" +
+	document.getElementById('nom').value +
+	"&filiere=" +
+	document.getElementById('filiere').value;
+	var http = new XMLHttpRequest();
+	http.open("GET", url+"?"+params, true);
+	http.onreadystatechange = function() {
+		if(http.readyState == 4 && http.status == 200) {
+			alert(http.responseText);
+		}
+	}
+	http.send(null);
+  }
+  var form = document.getElementById("searchForm");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    search();
+  });
+});
+</script>
 </body>
 </html>
