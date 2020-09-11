@@ -7,55 +7,81 @@
 <body>
   <style>
 	body{
-		/*background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));*/
-		background: green;
+		padding: 0;
+		margin: 0;
+		background: linear-gradient(0deg, rgba(88,255,88,0.5), rgba(88,215,88,0.4));
 	}
-
+	#searchForm{
+		height: 185px;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	#esaip{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50px;
+	}
 	#wrapper{
-		display:grid;
-		grid-template-columns: auto;
-		grid-template-rows: auto auto;
+		text-align: center;
 	}
-
 	table{
+		display: inline-block;
 		border: 4px black solid;
+		margin-bottom: 50px;
+		background-color: #FFF;
 	}
-
-	input{ /*formulaire et bouton*/
+	input{
 		border-style:inset;
 		border-radius:10px 0px 10px 0px;
-		width:200px;
+		width: 95%;
 		height:25px;
+		margin-bottom: 10px;
 	}
-
-	td,th{
+	#submit{
+		margin-top: 30px;
+	}
+	td{
 		font-size:21px;
-		font-family:"comic sans ms";
 		border:2px black solid;
 	}
-
 	#search-box{
-		background-color:#fffff2;
-		padding-left:10px;
+		background-color:#ffffff;
 		padding-bottom:10px;
+		margin-bottom:80px;
 		border:solid;
 		border-radius:10px 0px 10px 0px;
+		width: 30vw;
+		min-width: 430px;
+		display: inline-block;
+	}
+	#search-box > h2 {
+		margin-bottom: 50px;
 	}
   </style>
   <div id="wrapper">
     <h1>Green IT</h1>
+	<img id="esaip" src="esaip.png" width="300" height ="100" />
       <div id="search-box">
         <h2>Recherche</h2>
         <form id="searchForm">
           <input id="prenom" type="text" placeholder="prenom" >
           <input id="nom" type="text" placeholder="nom" >
           <input id="filiere" type="text" placeholder="filière" >
-          <input type="submit" value="GO">
+          <input id="submit" type="submit" value="GO">
         </form>
         <small>Nombre de recherches <span>0</span>.</small>
       </div>
-		<h2>Temps de chargement et execution de la page par navigateur:</h2>
+	  <br>
 		<table>
+		  <thead>
+			<tr>
+				<th colspan="2">Temps de chargement et execution de la page par navigateur</th>
+			</tr>
+		  </thead>
 		  <tr>
 			<td>Firefox</td>
 			<td>Chrome</td>
@@ -73,36 +99,54 @@
 			<td>2</td>
 		  </tr>
 		</table>
-      <p>Projet réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020</p>
-      <p>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU.</p>
-      <h4>ps: plus c'est moche plus ça charge vite</h4>
-      <a href="mentions.html">Mentions légales</a>
+      <p><small>Laura AMIOT, Gabin HUSSON, Remi TESSIER, Sebastien GENIN, Cyprien ISNARD, Thomas LEBEAU</small><br>Projet d'éco-conception réalisé dans le cadre des cours de Green IT à l'ESAIP (TP n°3) 2020. <a href="mentions.html">Mentions légales</a></p>
   </div>
-<script>
-window.addEventListener("load", function () {
-  function search() {
-    var url = "research";
-	var params = "prenom=" +
-	document.getElementById('prenom').value +
-	"&nom=" +
-	document.getElementById('nom').value +
-	"&filiere=" +
-	document.getElementById('filiere').value;
-	var http = new XMLHttpRequest();
-	http.open("GET", url+"?"+params, true);
-	http.onreadystatechange = function() {
-		if(http.readyState == 4 && http.status == 200) {
-			alert(http.responseText);
+	<script>
+	var formContent;
+	window.addEventListener("load", function () {
+	  function search() {
+		var url = "research";
+		var params = "prenom=" +
+		document.getElementById('prenom').value +
+		"&nom=" +
+		document.getElementById('nom').value +
+		"&filiere=" +
+		document.getElementById('filiere').value;
+		var http = new XMLHttpRequest();
+		http.open("GET", url+"?"+params, true);
+		http.onreadystatechange = function() {
+			if(http.readyState == 4 && http.status == 200) {
+				var result = JSON.parse(http.responseText);
+				var formated_result = "";
+				formContent = document.getElementById('searchForm').innerHTML;
+				if (result.length > 0)
+				{
+					result.forEach(person => {
+						formated_result += "<div style=\"height: 85%;border: 1px solid black;\"><p style=\"text-align: left;display: inline-block;\">"+
+						"Nom: "+person['nom']+
+						"<br>Prenom: "+person['prenom']+
+						"<br>Filière: "+person['filiere']+
+						"<br>Adresse: "+person['adresse']+
+						"<br>Code postal: "+person['cp']+
+						"<br>Ville: "+person['ville']+
+						"<br><small>Recherché "+person['search_nb']+" fois.</small>"+
+						"</p><img height=\"50%\" style=\"padding-bottom: 17px; padding-left: 30px;\" src="+person['photo']+"/></div>";
+						}
+					);
+				}
+				else
+				formated_result = "<p>Aucun résultat.</p><br>"
+				document.getElementById('searchForm').innerHTML = formated_result+"<button onclick=\"document.getElementById('searchForm').innerHTML = formContent\" type=\"button\">Retour</button>";
+			}
 		}
-	}
-	http.send(null);
-  }
-  var form = document.getElementById("searchForm");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    search();
-  });
-});
-</script>
+		http.send(null);
+	  }
+	  var form = document.getElementById("searchForm");
+	  form.addEventListener("submit", function (event) {
+		event.preventDefault();
+		search();
+	  });
+	});
+	</script>
 </body>
 </html>
